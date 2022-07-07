@@ -4,7 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>ff421569-280d-4b89-aaa8-03a09f39b2c1</UserSecretsId>
+    <UserSecretsId>3e8e9cdb-9fda-448f-9c3b-1d0edd651216</UserSecretsId>
     <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
   </PropertyGroup>
 
@@ -15,7 +15,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MessageBus\MessageBus.csproj" />
-    <ProjectReference Include="..\NewBookingProject.User.API\NewBookingProject.User.API.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\" />
   </ItemGroup>
 
 </Project>

@@ -1,6 +1,8 @@
 ﻿using MassTransit;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using NewBookingApp.Core.Options;
+using NewBookingApp.Core.WebExtensions;
 using System.Reflection;
 
 namespace MessageBus
@@ -23,7 +25,8 @@ namespace MessageBus
                 configure.AddConsumers(assembly);
                 configure.UsingRabbitMq((context, configurator) =>
                 {
-                  //  var connection = config.GetSection("MessageQueueConnection")?["MessageBus"];
+                    var rabbitMqOptions = services.GetOptions<RabbitMqOptions>("RabbitMq");
+                    //  var connection = config.GetSection("MessageQueueConnection")?["MessageBus"];
                     var host = "jackal.rmq.cloudamqp.com";
                     configurator.Host(host, "rcxeicbn", h =>
                     {
@@ -31,9 +34,24 @@ namespace MessageBus
                         h.Password("4dagw5KMJa67cktjr4QvVcRO627VevGP");
                         
                     });
-                    configurator.ConfigureEndpoints(context);
+                    var consumers = AppDomain.CurrentDomain.GetAssemblies().SelectMany(x => x.GetTypes())
+                            .Where(x => x.IsAssignableTo(typeof(IConsumer<>))).ToList();
+
+                    if (consumers.Any())
+                    {
+                        configurator.ReceiveEndpoint($"{rabbitMqOptions.ExchangeName}", e =>
+                        {
+                            foreach(var consumer in consumers)
+                            {
+                                configurator.ConfigureEndpoints(context);
+                            }
+                        });
+                    }
+                    
+                   
                     
                 });
+                
             });
 
 

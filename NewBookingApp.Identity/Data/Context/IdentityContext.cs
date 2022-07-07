@@ -10,7 +10,7 @@ namespace NewBookingApp.Identity.Data.Context
 {
     public sealed class IdentityContext : IdentityDbContext<ApplicationUser, IdentityRole<long>, long,
      IdentityUserClaim<long>,
-     IdentityUserRole<long>, IdentityUserLogin<long>, IdentityRoleClaim<long>, IdentityUserToken<long>>// IDbContext
+     IdentityUserRole<long>, IdentityUserLogin<long>, IdentityRoleClaim<long>, IdentityUserToken<long>>
     {
 
         private IDbContextTransaction _currentTransaction;
