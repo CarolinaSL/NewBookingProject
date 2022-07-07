@@ -10,10 +10,12 @@ namespace NewBookingProject.Passenger.API.Data
         {
         }
 
-        public DbSet<Passenger> Passengers => Set<Passengers.Models.Passenger>();
-        public Task<bool> Commit()
+        public DbSet<Passengers.Models.Passenger> Passengers => Set<Passengers.Models.Passenger>();
+        public async Task<bool> Commit()
         {
-            throw new NotImplementedException();
+            var sucess = await base.SaveChangesAsync() > 0;
+
+            return sucess;
         }
     }
 }

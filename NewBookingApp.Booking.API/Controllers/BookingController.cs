@@ -10,12 +10,10 @@ namespace NewBookingApp.Booking.API.Controllers
     public class BookingController : ControllerBase
     {
 
-        private readonly ILogger<BookingController> _logger;
         private readonly IMediator _mediator;
 
-        public BookingController(ILogger<BookingController> logger, IMediator mediator)
+        public BookingController(IMediator mediator)
         {
-            _logger = logger;
             _mediator = mediator;
         }
 

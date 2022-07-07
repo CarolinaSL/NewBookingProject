@@ -20,9 +20,11 @@ namespace NewBookingApp.Booking.Infra.Context
 
         public DbSet<Domain.Models.Booking> Bookings => Set<Domain.Models.Booking>();
 
-        public Task<bool> Commit()
+        public async Task<bool> Commit()
         {
-            throw new NotImplementedException();
+            var sucess = await base.SaveChangesAsync() > 0;
+
+            return sucess;
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
