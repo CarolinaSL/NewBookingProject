@@ -37,8 +37,7 @@ builder.Services.AddCustomMapster(typeof(FlightRoot).Assembly);
 builder.Services.AddControllers();
 builder.Services.AddHttpContextAccessor();
 
-builder.Services.AddCustomMassTransit(configuration, typeof(FlightRoot).Assembly)
-    .AddHostedService<Worker>();
+builder.Services.AddCustomMassTransit(configuration, typeof(FlightRoot).Assembly);
 
 SnowFlakIdGenerator.Configure(1);
 var app = builder.Build();

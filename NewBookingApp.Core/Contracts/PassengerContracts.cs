@@ -27,4 +27,6 @@ namespace NewBookingApp.Core.Contracts
         Baby,
         Unknown
     }
+
+    public record UserCreated(long Id, string Name, string PassportNumber);
 }

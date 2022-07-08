@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using MassTransit;
+using Microsoft.AspNetCore.Identity;
+using NewBookingApp.Core.Contracts;
 using NewBookingApp.Core.CQRS;
 using NewBookingApp.Identity.Dtos;
 using NewBookingApp.Identity.Models;
@@ -9,11 +11,13 @@ namespace NewBookingApp.Identity.Feature.RegisterNewUser
     public class RegisterNewUserCommandHandler : ICommandHandler<RegisterNewUserCommand, RegisterNewUserResponseDto>
     {
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly IPublishEndpoint _publishEndpoint;
 
-        public RegisterNewUserCommandHandler(UserManager<ApplicationUser> userManager)
+        public RegisterNewUserCommandHandler(UserManager<ApplicationUser> userManager, IPublishEndpoint publishEndpoint)
         {
             _userManager = userManager;
-           // _eventDispatcher = eventDispatcher;
+            _publishEndpoint = publishEndpoint;
+           
         }
 
         public async Task<RegisterNewUserResponseDto> Handle(RegisterNewUserCommand command, CancellationToken cancellationToken)
@@ -37,8 +41,9 @@ namespace NewBookingApp.Identity.Feature.RegisterNewUser
             if (roleResult.Succeeded == false)
                 throw new NotImplementedException(string.Join(',', roleResult.Errors.Select(e => e.Description)));
 
-            /*  await _eventDispatcher.SendAsync(new UserCreated(applicationUser.Id, applicationUser.FirstName + " " + applicationUser.LastName,
-                 applicationUser.PassPortNumber), cancellationToken);*/
+            await _publishEndpoint.Publish<UserCreated>(new UserCreated(applicationUser.Id, applicationUser.FirstName + " " + applicationUser.LastName,
+                 applicationUser.PassPortNumber));
+
 
             return new RegisterNewUserResponseDto
             {

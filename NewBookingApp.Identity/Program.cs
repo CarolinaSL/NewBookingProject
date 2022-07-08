@@ -2,6 +2,7 @@ using MediatR;
 using MessageBus;
 using Microsoft.EntityFrameworkCore;
 using NewBookingApp.Core.EFCore;
+using NewBookingApp.Core.Mapping;
 using NewBookingApp.Core.Options;
 using NewBookingApp.Core.WebExtensions;
 using NewBookingApp.Identity;
@@ -28,6 +29,7 @@ builder.Services.AddMediatR(typeof(IdentityRoot).Assembly);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddCustomMapster(typeof(IdentityRoot).Assembly);
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IDataSeeder, IdentityDataSeeder>();
 builder.Services.AddCustomMassTransit(configuration, typeof(IdentityRoot).Assembly);
@@ -44,10 +46,9 @@ if (app.Environment.IsDevelopment())
 app.UseMigrations();
 app.UseRouting();
 app.UseHttpsRedirection();
-
 app.UseAuthentication();
 app.UseAuthorization();
-
+app.UseIdentityServer();
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllers();

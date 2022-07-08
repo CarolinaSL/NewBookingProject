@@ -41,7 +41,8 @@ namespace NewBookingApp.Identity.Data.Configuration
                     LastName = "Louzada",
                     UserName = "carol",
                     Email = "carolina.louzada@hotmail.com",
-                    SecurityStamp = Guid.NewGuid().ToString()
+                    SecurityStamp = Guid.NewGuid().ToString(),
+                    PassPortNumber = "123456489"
                 };
 
                 var result = await _userManager.CreateAsync(user, "Admin@123456");
@@ -58,7 +59,8 @@ namespace NewBookingApp.Identity.Data.Configuration
                     LastName = "L",
                     UserName = "carol2",
                     Email = "carol2@test.com",
-                    SecurityStamp = Guid.NewGuid().ToString()
+                    SecurityStamp = Guid.NewGuid().ToString(),
+                    PassPortNumber = "12356513877"
                 };
 
                 var result = await _userManager.CreateAsync(user, "User@123456");

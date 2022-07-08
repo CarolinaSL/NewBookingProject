@@ -1,4 +1,6 @@
-﻿using MassTransit;
+﻿using Mapster;
+using MassTransit;
+using NewBookingApp.Booking.API.DTOs;
 using NewBookingApp.Booking.Domain.Interfaces;
 using NewBookingApp.Booking.Domain.Models.ValueObjects;
 using NewBookingApp.Booking.Infra.Respository;
@@ -9,7 +11,7 @@ using NewBookingApp.Core.Exceptions;
 namespace NewBookingApp.Booking.API.Command.CreateBooking
 {
 
-    public class CreateBookingCommandHandler : ICommandHandler<CreateBookingCommand, ulong>
+    public class CreateBookingCommandHandler : ICommandHandler<CreateBookingCommand, CreateReservationResponseDto>
     {
         private readonly IBus _bus;
         IRequestClient<GetFlightById> _clientA;
@@ -33,7 +35,7 @@ namespace NewBookingApp.Booking.API.Command.CreateBooking
             _repository = repository;
         }
 
-        public async Task<ulong> Handle(CreateBookingCommand command,
+        public async Task<CreateReservationResponseDto> Handle(CreateBookingCommand command,
        CancellationToken cancellationToken)
         {
             var flightMessage= _clientA.GetResponse<FlightResponse>(new { FlightId = command.FlightId },cancellationToken);
@@ -72,9 +74,11 @@ namespace NewBookingApp.Booking.API.Command.CreateBooking
 
              _repository.Add(aggregate);
 
-            await _repository.UnitOfWork.Commit();
+            var result = await _repository.UnitOfWork.Commit();
 
-            return 1;
+            var result2 = aggregate.Adapt<CreateReservationResponseDto>();
+
+            return result2;
         }
     }
 }

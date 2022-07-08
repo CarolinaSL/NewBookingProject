@@ -4,7 +4,7 @@ using NewBookingApp.Identity.Feature.RegisterNewUser;
 
 namespace NewBookingApp.Identity.Controllers
 {
-    [Route("identity/register-user")]
+    [Route("api/register-user")]
     [ApiController]
     public class LoginEndpoint : ControllerBase
     {

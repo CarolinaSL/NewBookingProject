@@ -23,7 +23,9 @@ namespace NewBookingApp.Identity
             {
             new(Constants.StandardScopes.FlightApi),
             new(Constants.StandardScopes.PassengerApi),
-            new(Constants.StandardScopes.BookingApi)
+            new(Constants.StandardScopes.BookingApi),
+            new(Constants.StandardScopes.EmailApi),
+
             };
 
 
@@ -32,7 +34,8 @@ namespace NewBookingApp.Identity
             {
             new(Constants.StandardScopes.FlightApi),
             new(Constants.StandardScopes.PassengerApi),
-            new(Constants.StandardScopes.BookingApi)
+            new(Constants.StandardScopes.BookingApi),
+             new(Constants.StandardScopes.EmailApi),
             };
 
         public static IEnumerable<Client> Clients =>
@@ -55,7 +58,8 @@ namespace NewBookingApp.Identity
                     IdentityServerConstants.StandardScopes.Profile,
                     Constants.StandardScopes.FlightApi,
                     Constants.StandardScopes.PassengerApi,
-                    Constants.StandardScopes.BookingApi
+                    Constants.StandardScopes.BookingApi,
+                    Constants.StandardScopes.EmailApi,
                 }
             }
             };

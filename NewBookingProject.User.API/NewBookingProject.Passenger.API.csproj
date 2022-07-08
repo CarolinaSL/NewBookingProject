@@ -17,8 +17,4 @@
     <ProjectReference Include="..\MessageBus\MessageBus.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Commands\" />
-  </ItemGroup>
-
 </Project>

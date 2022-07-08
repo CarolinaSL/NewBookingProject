@@ -29,8 +29,8 @@ namespace NewBookingApp.Identity.Extensions
                 .AddInMemoryApiResources(Config.ApiResources)
                 .AddInMemoryApiScopes(Config.ApiScopes)
                 .AddInMemoryClients(Config.Clients)
-                .AddAspNetIdentity<ApplicationUser>();
-            // .AddResourceOwnerValidator<UserValidator>();
+                .AddAspNetIdentity<ApplicationUser>()
+                .AddResourceOwnerValidator<UserValidator>();
 
             if (env.IsDevelopment())
             {
