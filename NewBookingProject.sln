@@ -10,6 +10,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewBookingApp.Flight.Domain", "NewBookingApp.Flight\NewBookingApp.Flight.Domain.csproj", "{961A5116-A5E3-4AEE-A916-6BBE47B4B6C2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewBookingProject.Passenger.API", "NewBookingProject.User.API\NewBookingProject.Passenger.API.csproj", "{2AF22BB1-1202-4D19-98B6-56B7DD5CFE63}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B9D57E6B-508A-47AA-B37F-0924E2A42E90} = {B9D57E6B-508A-47AA-B37F-0924E2A42E90}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewBookingApp.Identity", "NewBookingApp.Identity\NewBookingApp.Identity.csproj", "{A9AAE18B-3215-4C8C-ABBC-F0DEA254D6AC}"
 EndProject
@@ -23,19 +26,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{FF
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Flight", "Flight", "{C4D28E32-0994-4747-8503-54B1758AC352}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewBookingApp.Flight.Infra", "NewBookingApp.Flight.Infra\NewBookingApp.Flight.Infra.csproj", "{C7FBA820-0B34-471B-81FC-0EFD9E88FCD4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewBookingApp.Flight.Infra", "NewBookingApp.Flight.Infra\NewBookingApp.Flight.Infra.csproj", "{C7FBA820-0B34-471B-81FC-0EFD9E88FCD4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Email", "Email", "{B1FF061E-3E6A-43B7-A3F1-C0BDE5060712}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewBookingApp.Email", "NewBookingApp.Email\NewBookingApp.Email.csproj", "{2664A435-E087-4562-A817-B6AE0137F4F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewBookingApp.Email", "NewBookingApp.Email\NewBookingApp.Email.csproj", "{2664A435-E087-4562-A817-B6AE0137F4F8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Booking", "Booking", "{0D303189-9699-44E7-966E-95E3EB791B34}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewBookingApp.Booking.API", "NewBookingApp.Booking.API\NewBookingApp.Booking.API.csproj", "{379AA1D3-06CC-4EAB-B983-643437822D50}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewBookingApp.Booking.API", "NewBookingApp.Booking.API\NewBookingApp.Booking.API.csproj", "{379AA1D3-06CC-4EAB-B983-643437822D50}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewBookingApp.Booking.Domain", "NewBookingApp.Booking.Domain\NewBookingApp.Booking.Domain.csproj", "{8A557FAA-9318-48C8-9D56-B7EC043E23C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewBookingApp.Booking.Domain", "NewBookingApp.Booking.Domain\NewBookingApp.Booking.Domain.csproj", "{8A557FAA-9318-48C8-9D56-B7EC043E23C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewBookingApp.Booking.Infra", "NewBookingApp.Booking.Infra\NewBookingApp.Booking.Infra.csproj", "{4A8DE7DE-0A50-4A5F-87FC-747E2EF4E522}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewBookingApp.Booking.Infra", "NewBookingApp.Booking.Infra\NewBookingApp.Booking.Infra.csproj", "{4A8DE7DE-0A50-4A5F-87FC-747E2EF4E522}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Passenger", "Passenger", "{0624D725-8C1D-4ADE-A670-726DE5C4C3E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -95,6 +100,7 @@ Global
 		{B9F69A98-C2F3-4CDE-8FF9-37E219AAE6DF} = {C4D28E32-0994-4747-8503-54B1758AC352}
 		{0A3F6EE0-6CC9-44C9-88E4-793BE1C4FE3B} = {AB488304-98C6-400C-805A-943EC61FAD8A}
 		{961A5116-A5E3-4AEE-A916-6BBE47B4B6C2} = {C4D28E32-0994-4747-8503-54B1758AC352}
+		{2AF22BB1-1202-4D19-98B6-56B7DD5CFE63} = {0624D725-8C1D-4ADE-A670-726DE5C4C3E4}
 		{A9AAE18B-3215-4C8C-ABBC-F0DEA254D6AC} = {FF6061FE-1456-499C-92E4-65E00DE9D2DA}
 		{B9D57E6B-508A-47AA-B37F-0924E2A42E90} = {AB488304-98C6-400C-805A-943EC61FAD8A}
 		{FF6061FE-1456-499C-92E4-65E00DE9D2DA} = {CCA48CF3-C21E-4CD8-8C5E-DEC9D47CED81}
@@ -106,6 +112,7 @@ Global
 		{379AA1D3-06CC-4EAB-B983-643437822D50} = {0D303189-9699-44E7-966E-95E3EB791B34}
 		{8A557FAA-9318-48C8-9D56-B7EC043E23C0} = {0D303189-9699-44E7-966E-95E3EB791B34}
 		{4A8DE7DE-0A50-4A5F-87FC-747E2EF4E522} = {0D303189-9699-44E7-966E-95E3EB791B34}
+		{0624D725-8C1D-4ADE-A670-726DE5C4C3E4} = {CCA48CF3-C21E-4CD8-8C5E-DEC9D47CED81}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4E03708C-E475-4A0B-A1DE-09F6146C264C}

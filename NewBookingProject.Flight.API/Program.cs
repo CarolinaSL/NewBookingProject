@@ -3,6 +3,7 @@ using MessageBus;
 using Microsoft.EntityFrameworkCore;
 using NewBookingApp.Core.EFCore;
 using NewBookingApp.Core.Generators;
+using NewBookingApp.Core.Jwt;
 using NewBookingApp.Core.Mapping;
 using NewBookingApp.Core.Options;
 using NewBookingApp.Core.WebExtensions;
@@ -29,6 +30,7 @@ builder.Services.AddDbContext<FlightDbContext>(options =>
 
 builder.Services.AddScoped<IDataSeeder, FlightDataSeeder>();
 
+builder.Services.AddJwt();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

@@ -1,4 +1,5 @@
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NewBookingApp.Flight.API.Queries.GetAvailableFlights;
 using NewBookingApp.Flight.API.Queries.GetFlightById;
@@ -18,7 +19,7 @@ namespace NewBookingProject.Flight.API.Controllers
             _logger = logger;
             _mediator = mediator;
         }
-        // [Authorize]
+        //[Authorize]
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]

@@ -38,20 +38,24 @@ namespace NewBookingApp.Booking.API.Command.CreateBooking
         public async Task<CreateReservationResponseDto> Handle(CreateBookingCommand command,
        CancellationToken cancellationToken)
         {
-            var flightMessage= _clientA.GetResponse<FlightResponse>(new { FlightId = command.FlightId },cancellationToken);
+            var flightMessage= await _clientA.GetResponse<FlightResponse>(new { FlightId = command.FlightId },cancellationToken);
 
+            var flight = flightMessage.Message;
             if (flightMessage is null)
                 throw new NotImplementedException();
 
-            var emptySeatMessage = _clientB.GetResponse<SeatResponse>(new { FlightId = command.FlightId }, cancellationToken);
+            var emptySeatMessage = await _clientB.GetResponse<SeatResponse>(new { FlightId = command.FlightId }, cancellationToken);
 
-            var passengerMessage = _clientC.GetResponse<PassengerResponse>(new { PassengerId = command.PassengerId });
+            var emptySeat = emptySeatMessage.Message;
 
-            await Task.WhenAll(flightMessage, emptySeatMessage, passengerMessage);
+            var passengerMessage =await _clientC.GetResponse<PassengerResponse>(new { PassengerId = command.PassengerId });
 
-            var flight = flightMessage.Result.Message;
-            var emptySeat = emptySeatMessage.Result.Message;
-            var passenger = passengerMessage.Result.Message;
+            var passenger = passengerMessage.Message;
+          //  await Task.WhenAll(flightMessage, emptySeatMessage, passengerMessage);
+
+            //var flight = flightMessage.Result.Message;
+           // var emptySeat = emptySeatMessage.Result.Message;
+           // var passenger = passengerMessage.Result.Message;
 
             var reservation = await _repository.GetById(command.Id);
 

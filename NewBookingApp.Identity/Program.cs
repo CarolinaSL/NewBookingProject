@@ -44,11 +44,13 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 app.UseMigrations();
+
 app.UseRouting();
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseIdentityServer();
+
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllers();
