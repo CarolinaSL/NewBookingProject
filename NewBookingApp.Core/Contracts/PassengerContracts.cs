@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NewBookingApp.Core.Contracts
 {
-    public record GetPassengerById
+    public record GetPassengerByIdRequest
     {
         public long Id { get; init; }
     }

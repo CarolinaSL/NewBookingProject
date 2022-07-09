@@ -30,6 +30,8 @@ namespace NewBookingApp.Flight.API.Command.ResearveSeat
 
             var updatedSeat = _flightDbContext.Seats.Update(reserveSeat);
 
+            _flightDbContext.SaveChanges();
+
             return _mapper.Map<SeatResponseDto>(updatedSeat.Entity);
         }
     }

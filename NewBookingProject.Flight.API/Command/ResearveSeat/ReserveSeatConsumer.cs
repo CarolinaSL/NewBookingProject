@@ -6,8 +6,6 @@ namespace NewBookingApp.Flight.API.Command.ResearveSeat
 {
     public class ReserveSeatConsumer : IConsumer<ReserveSeatRequestDto>
     {
-
-   
    
         private IMediator _mediator;
 
@@ -17,10 +15,11 @@ namespace NewBookingApp.Flight.API.Command.ResearveSeat
          
         }
 
-        public async Task Consume(ConsumeContext<ReserveSeatRequestDto> command)
+        public async Task Consume(ConsumeContext<ReserveSeatRequestDto> context)
         {
+            var command = new ReserveSeatCommand(context.Message.FlightId, context.Message.SeatNumber);
 
-           await _mediator.Send(command);
+           var result = await _mediator.Send(command);
         }
     }
 }

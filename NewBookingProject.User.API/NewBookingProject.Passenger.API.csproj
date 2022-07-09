@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MessageBus\MessageBus.csproj" />
+    <ProjectReference Include="..\NewBookingApp.Core\NewBookingApp.Core.csproj" />
   </ItemGroup>
 
 </Project>

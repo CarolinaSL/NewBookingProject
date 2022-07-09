@@ -16,14 +16,14 @@ namespace NewBookingApp.Booking.API.Command.CreateBooking
         private readonly IBus _bus;
         IRequestClient<GetFlightById> _clientA;
         IRequestClient<GetAvailabeSeatsbyId> _clientB;
-        private readonly IRequestClient<GetPassengerById> _clientC;
+        private readonly IRequestClient<GetPassengerByIdRequest> _clientC;
         private readonly ISendEndpointProvider _sendEndpointProvider;
         private readonly IBookingRepository _repository;
 
         public CreateBookingCommandHandler( 
             IRequestClient<GetFlightById> clientA,
             IRequestClient<GetAvailabeSeatsbyId> clientB,
-            IRequestClient<GetPassengerById> clientC,
+            IRequestClient<GetPassengerByIdRequest> clientC,
             ISendEndpointProvider sendEndpointProvider, 
             IBookingRepository repository)
         {
@@ -67,7 +67,7 @@ namespace NewBookingApp.Booking.API.Command.CreateBooking
             flight.FlightNumber, flight.AircraftId, flight.DepartureAirportId,
             flight.ArriveAirportId, flight.FlightDate, flight.Price, command.Description, emptySeat?.SeatNumber));
 
-            var _serviceAddress = "exchange:flight";
+            var _serviceAddress = "queue:ReserveSeat";
             var endpoint = await _sendEndpointProvider.GetSendEndpoint(new Uri(_serviceAddress));
 
             await endpoint.Send(new ReserveSeatRequestDto

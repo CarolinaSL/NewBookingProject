@@ -1,10 +1,11 @@
-﻿using MassTransit;
+﻿using Mapster;
+using MassTransit;
 using MediatR;
+using NewBookingApp.Core.Contracts;
 
-
-namespace NewBookingProject.Passenger.API.Queries
+namespace NewBookingProject.Passenger.API.Queries.GetPassengerById
 {
-    public class GetPassengerByIdConsumer : IConsumer<GetPassengerById>
+    public class GetPassengerByIdConsumer : IConsumer<GetPassengerByIdRequest>
     {
 
         private IMediator _mediator;
@@ -15,6 +16,16 @@ namespace NewBookingProject.Passenger.API.Queries
 
         }
 
-        
+        public async Task Consume(ConsumeContext<GetPassengerByIdRequest> context)
+        {
+            var query = new GetPassengerQueryById(context.Message.Id);
+
+            var passengerResponseDto =await _mediator.Send(query);
+
+            var result = passengerResponseDto.Adapt<PassengerResponse>();
+
+            await context.RespondAsync<PassengerResponse>(result);
+
+        }
     }
 }
