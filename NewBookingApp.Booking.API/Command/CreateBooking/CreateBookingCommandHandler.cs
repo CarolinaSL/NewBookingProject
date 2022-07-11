@@ -51,6 +51,7 @@ namespace NewBookingApp.Booking.API.Command.CreateBooking
             var passengerMessage =await _clientC.GetResponse<PassengerResponse>(new { PassengerId = command.PassengerId });
 
             var passenger = passengerMessage.Message;
+
           //  await Task.WhenAll(flightMessage, emptySeatMessage, passengerMessage);
 
             //var flight = flightMessage.Result.Message;
@@ -80,9 +81,26 @@ namespace NewBookingApp.Booking.API.Command.CreateBooking
 
             var result = await _repository.UnitOfWork.Commit();
 
-            var result2 = aggregate.Adapt<CreateReservationResponseDto>();
+            var reservationResponseDto = aggregate.Adapt<CreateReservationResponseDto>();
 
-            return result2;
+            if (result is true)
+            {
+                var _serveceAddressEmail = "queue:SendEmail";
+                var endpointEmail = await _sendEndpointProvider.GetSendEndpoint(new Uri(_serveceAddressEmail));
+
+                await endpointEmail.Send(new SendEmailRequestDto
+                {
+                    PassengerName = passenger.Name,
+                    PassengerPassport = passenger.PassportNumber,
+                    FlightNumber = reservationResponseDto.FlightNumber,
+                    FlightDate = reservationResponseDto.FlightDate,
+                    SeatNumber = reservationResponseDto.SeatNumber,
+
+                });
+            }
+           
+
+            return reservationResponseDto;
         }
     }
 }

@@ -17,7 +17,6 @@ var env = builder.Environment;
 
 // Add services to the container.
 var appOptions = builder.Services.GetOptions<AppOptions>("AppOptions");
-//builder.Services.AddScoped<IDbContext>(provider => provider.GetService<IdentityContext>()!);
 
 AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 builder.Services.AddDbContext<IdentityContext>(options =>
