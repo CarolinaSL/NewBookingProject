@@ -11,6 +11,7 @@ using NewBookingApp.Flight.API.Extensions;
 using NewBookingApp.Flight.Infra.Context;
 using NewBookingApp.Flight.Infra.Seed;
 using NewBookingProject.Flight.API;
+using FluentValidation;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
@@ -36,6 +37,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddMediatR(typeof(FlightRoot).Assembly);
 builder.Services.AddCustomMapster(typeof(FlightRoot).Assembly);
+builder.Services.AddValidatorsFromAssembly(typeof(FlightRoot).Assembly);
 builder.Services.AddControllers();
 builder.Services.AddHttpContextAccessor();
 
@@ -54,7 +56,7 @@ if (app.Environment.IsDevelopment())
 app.UseRouting();
 app.UseMigrations();
 app.UseHttpsRedirection();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.UseEndpoints(endpoints =>

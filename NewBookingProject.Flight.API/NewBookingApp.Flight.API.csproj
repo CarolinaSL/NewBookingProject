@@ -23,9 +23,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MessageBus\MessageBus.csproj" />
+    <ProjectReference Include="..\NewBookingApp.Core\NewBookingApp.Core.csproj" />
     <ProjectReference Include="..\NewBookingApp.Flight.Infra\NewBookingApp.Flight.Infra.csproj" />
     <ProjectReference Include="..\NewBookingApp.Flight\NewBookingApp.Flight.Domain.csproj" />
-    <ProjectReference Include="..\NewBookingProject.User.API\NewBookingProject.Passenger.API.csproj" />
   </ItemGroup>
 
 </Project>

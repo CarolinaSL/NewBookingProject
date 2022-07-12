@@ -19,7 +19,7 @@ namespace NewBookingProject.Flight.API.Controllers
             _logger = logger;
             _mediator = mediator;
         }
-        //[Authorize]
+        [Authorize]
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]

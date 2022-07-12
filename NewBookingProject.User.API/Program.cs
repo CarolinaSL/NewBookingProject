@@ -1,3 +1,4 @@
+using FluentValidation;
 using MediatR;
 using MessageBus;
 using Microsoft.EntityFrameworkCore;
@@ -30,7 +31,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddMediatR(typeof(PassengerRoot).Assembly);
 builder.Services.AddCustomMapster(typeof(PassengerRoot).Assembly);
-
+builder.Services.AddValidatorsFromAssembly(typeof(PassengerRoot).Assembly);
 builder.Services.AddCustomMassTransit(configuration, typeof(PassengerRoot).Assembly);
 
 SnowFlakIdGenerator.Configure(2);

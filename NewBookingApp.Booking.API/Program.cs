@@ -1,3 +1,4 @@
+using FluentValidation;
 using MassTransit;
 using MediatR;
 using MessageBus;
@@ -35,6 +36,7 @@ builder.Services.AddScoped<IBookingRepository, BookingRepository>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddCustomMapster(typeof(BookingRoot).Assembly);
+builder.Services.AddValidatorsFromAssembly(typeof(BookingRoot).Assembly);
 builder.Services.AddCustomMassTransit(configuration, typeof(BookingRoot).Assembly);
 
 
@@ -53,7 +55,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseRouting();
 app.UseHttpsRedirection();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.UseEndpoints(endpoints =>
