@@ -9,6 +9,7 @@ using NewBookingApp.Booking.Domain.Interfaces;
 using NewBookingApp.Booking.Infra.Context;
 using NewBookingApp.Booking.Infra.Respository;
 using NewBookingApp.Core.Generators;
+using NewBookingApp.Core.Jwt;
 using NewBookingApp.Core.Mapping;
 using NewBookingApp.Core.Options;
 using NewBookingApp.Core.WebExtensions;
@@ -31,6 +32,7 @@ builder.Services.AddDbContext<BookingDbContext>(options =>
 
 builder.Services.AddControllers();
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddJwt();
 SnowFlakIdGenerator.Configure(3);
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

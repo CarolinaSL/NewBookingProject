@@ -23,7 +23,6 @@ namespace NewBookingProject.Passenger.API.Controllers
         [HttpGet("{Id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-      //  [SwaggerOperation(Summary = "Get passenger by id", Description = "Get passenger by id")]
         public async Task<ActionResult> GetById([FromRoute] GetPassengerQueryById query, CancellationToken cancellationToken)
         {
             var result = await _mediator.Send(query, cancellationToken);
@@ -35,7 +34,6 @@ namespace NewBookingProject.Passenger.API.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        //[SwaggerOperation(Summary = "Complete Register Passenger", Description = "Complete Register Passenger")]
         public async Task<ActionResult> CompleteRegisterPassenger([FromBody] CompleteRegisterPassengerCommand command,
        CancellationToken cancellationToken)
         {

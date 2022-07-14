@@ -24,12 +24,14 @@ builder.Services.AddDbContext<IdentityContext>(options =>
                           configuration.GetConnectionString("DefaultConnection"),
                          x => x.MigrationsAssembly(typeof(IdentityContext).Assembly.GetName().Name)));
 
-builder.Services.AddMediatR(typeof(IdentityRoot).Assembly);
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddCustomMapster(typeof(IdentityRoot).Assembly);
 builder.Services.AddSwaggerGen();
+builder.Services.AddMediatR(typeof(IdentityRoot).Assembly);
+builder.Services.AddCustomMapster(typeof(IdentityRoot).Assembly);
 builder.Services.AddScoped<IDataSeeder, IdentityDataSeeder>();
 builder.Services.AddCustomMassTransit(configuration, typeof(IdentityRoot).Assembly);
 builder.Services.AddIdentityServer(env); 

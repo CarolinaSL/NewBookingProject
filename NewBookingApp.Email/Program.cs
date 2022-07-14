@@ -14,7 +14,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddCustomMassTransit(configuration, typeof(EmailRoot).Assembly);
-
+builder.Services.AddSingleton<IConfiguration>(configuration);
 
 var app = builder.Build(); 
 

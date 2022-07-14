@@ -11,15 +11,14 @@ namespace NewBookingProject.Flight.API.Controllers
     public class FlightController : ControllerBase
     {
 
-        private readonly ILogger<FlightController> _logger;
         private readonly IMediator _mediator;
 
-        public FlightController(ILogger<FlightController> logger, IMediator mediator)
+        public FlightController(IMediator mediator)
         {
-            _logger = logger;
+            
             _mediator = mediator;
         }
-        //[Authorize]
+        [Authorize]
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -31,7 +30,7 @@ namespace NewBookingProject.Flight.API.Controllers
         }
 
 
-        // [Authorize]
+        [Authorize]
         [HttpGet("{Id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]

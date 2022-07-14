@@ -13,9 +13,8 @@ namespace NewBookingApp.Booking.API.Command.CreateBooking
 
     public class CreateBookingCommandHandler : ICommandHandler<CreateBookingCommand, CreateReservationResponseDto>
     {
-        private readonly IBus _bus;
-        IRequestClient<GetFlightById> _clientA;
-        IRequestClient<GetAvailabeSeatsbyId> _clientB;
+        private readonly IRequestClient<GetFlightById> _clientA;
+        private readonly IRequestClient<GetAvailabeSeatsbyId> _clientB;
         private readonly IRequestClient<GetPassengerByIdRequest> _clientC;
         private readonly ISendEndpointProvider _sendEndpointProvider;
         private readonly IBookingRepository _repository;

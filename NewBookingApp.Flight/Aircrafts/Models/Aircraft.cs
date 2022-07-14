@@ -1,5 +1,4 @@
 ﻿using NewBookingApp.Core.Model;
-using NewBookingApp.Flight.Domain.Aircrafts.Events;
 
 namespace NewBookingApp.Flight.Domain.Aircrafts.Models
 {
@@ -21,12 +20,6 @@ namespace NewBookingApp.Flight.Domain.Aircrafts.Models
                 Model = model,
             };
 
-            var @event = new AircraftCreatedDomainEvent(
-                aircraft.Id,
-                aircraft.Name,
-                aircraft.Model);
-
-            
 
             return aircraft;
         }

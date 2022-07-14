@@ -8,15 +8,18 @@ namespace NewBookingApp.Email.SendEmail
     public class SendEmailConsumer : IConsumer<SendEmailRequestDto>
     {
         private readonly IRequestClient<RequestUserByPassportNumber> _client;
+        private readonly IConfiguration _config;
 
-        public SendEmailConsumer(IRequestClient<RequestUserByPassportNumber> client)
+        public SendEmailConsumer(IRequestClient<RequestUserByPassportNumber> client, IConfiguration configuration)
         {
             _client = client;
+            _config = configuration;
         }
         public async Task Consume(ConsumeContext<SendEmailRequestDto> context)
         {
-            var api = "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";
-            var client = new SendGridClient(api);
+           // var api = "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";
+            var apiKey = _config.GetSection("apiKey").Value;
+            var client = new SendGridClient(apiKey);
 
             var identityResponse = await _client.GetResponse<GetUserResponse>( new RequestUserByPassportNumber(context.Message.PassengerPassport));
 
