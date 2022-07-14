@@ -9,7 +9,7 @@ namespace NewBookingApp.Flight.Infra.Context
 {
     public class FlightDbContext : DbContext
     {
-        public FlightDbContext(DbContextOptions<FlightDbContext> options, IHttpContextAccessor httpContextAccessor) : base(
+        public FlightDbContext(DbContextOptions<FlightDbContext> options) : base(
              options)
         {
         }

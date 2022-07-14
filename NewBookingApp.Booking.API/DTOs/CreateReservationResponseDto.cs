@@ -2,7 +2,7 @@
 {
     public class CreateReservationResponseDto
     {
-        public long Id { get; init; }
+        public Guid Id { get; init; }
         public string Name { get; init; }
         public string FlightNumber { get; init; }
         public long AircraftId { get; init; }

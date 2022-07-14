@@ -24,8 +24,8 @@ namespace NewBookingApp.Booking.Infra.Migrations
 
             modelBuilder.Entity("NewBookingApp.Booking.Domain.Models.Booking", b =>
                 {
-                    b.Property<long>("Id")
-                        .HasColumnType("bigint");
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uuid");
 
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("timestamp without time zone");
@@ -51,8 +51,8 @@ namespace NewBookingApp.Booking.Infra.Migrations
                 {
                     b.OwnsOne("NewBookingApp.Booking.Domain.Models.ValueObjects.PassengerInfo", "PassengerInfo", b1 =>
                         {
-                            b1.Property<long>("BookingId")
-                                .HasColumnType("bigint");
+                            b1.Property<Guid>("BookingId")
+                                .HasColumnType("uuid");
 
                             b1.Property<string>("Name")
                                 .IsRequired()
@@ -68,8 +68,8 @@ namespace NewBookingApp.Booking.Infra.Migrations
 
                     b.OwnsOne("NewBookingApp.Booking.Domain.Models.ValueObjects.Trip", "Trip", b1 =>
                         {
-                            b1.Property<long>("BookingId")
-                                .HasColumnType("bigint");
+                            b1.Property<Guid>("BookingId")
+                                .HasColumnType("uuid");
 
                             b1.Property<long>("AircraftId")
                                 .HasColumnType("bigint");

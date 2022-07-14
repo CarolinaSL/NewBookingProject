@@ -48,7 +48,7 @@ namespace NewBookingApp.Booking.API.Command.CreateBooking
 
             var emptySeat = emptySeatMessage.Message;
 
-            var passengerMessage =await _clientC.GetResponse<PassengerResponse>(new { PassengerId = command.PassengerId });
+            var passengerMessage =await _clientC.GetResponse<PassengerResponse>(new { PassengerId = command.PassengerId }, cancellationToken);
 
             var passenger = passengerMessage.Message;
 

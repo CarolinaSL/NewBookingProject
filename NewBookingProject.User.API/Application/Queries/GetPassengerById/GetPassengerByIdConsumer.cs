@@ -18,13 +18,13 @@ namespace NewBookingProject.Passenger.API.Queries.GetPassengerById
 
         public async Task Consume(ConsumeContext<GetPassengerByIdRequest> context)
         {
-            var query = new GetPassengerQueryById(context.Message.Id);
+            var query = new GetPassengerQueryById(context.Message.PassengerId);
 
             var passengerResponseDto =await _mediator.Send(query);
 
             var result = passengerResponseDto.Adapt<PassengerResponse>();
 
-            await context.RespondAsync<PassengerResponse>(result);
+            await context.RespondAsync(result);
 
         }
     }

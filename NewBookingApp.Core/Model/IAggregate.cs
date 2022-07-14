@@ -5,7 +5,7 @@
         T Id { get; }
     }
 
-    public interface IAggregate : IEntity
+    public interface IAggregate
     {
        
     }

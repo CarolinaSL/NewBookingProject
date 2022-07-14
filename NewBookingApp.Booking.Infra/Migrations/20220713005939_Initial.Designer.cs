@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace NewBookingApp.Booking.Infra.Migrations
 {
     [DbContext(typeof(BookingDbContext))]
-    [Migration("20220705162850_Initial")]
+    [Migration("20220713005939_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -26,8 +26,8 @@ namespace NewBookingApp.Booking.Infra.Migrations
 
             modelBuilder.Entity("NewBookingApp.Booking.Domain.Models.Booking", b =>
                 {
-                    b.Property<long>("Id")
-                        .HasColumnType("bigint");
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uuid");
 
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("timestamp without time zone");
@@ -53,8 +53,8 @@ namespace NewBookingApp.Booking.Infra.Migrations
                 {
                     b.OwnsOne("NewBookingApp.Booking.Domain.Models.ValueObjects.PassengerInfo", "PassengerInfo", b1 =>
                         {
-                            b1.Property<long>("BookingId")
-                                .HasColumnType("bigint");
+                            b1.Property<Guid>("BookingId")
+                                .HasColumnType("uuid");
 
                             b1.Property<string>("Name")
                                 .IsRequired()
@@ -70,8 +70,8 @@ namespace NewBookingApp.Booking.Infra.Migrations
 
                     b.OwnsOne("NewBookingApp.Booking.Domain.Models.ValueObjects.Trip", "Trip", b1 =>
                         {
-                            b1.Property<long>("BookingId")
-                                .HasColumnType("bigint");
+                            b1.Property<Guid>("BookingId")
+                                .HasColumnType("uuid");
 
                             b1.Property<long>("AircraftId")
                                 .HasColumnType("bigint");

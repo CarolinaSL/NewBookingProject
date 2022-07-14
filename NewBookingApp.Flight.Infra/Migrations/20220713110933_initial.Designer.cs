@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace NewBookingApp.Flight.Infra.Migrations
 {
     [DbContext(typeof(FlightDbContext))]
-    [Migration("20220705142736_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20220713110933_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -30,7 +30,7 @@ namespace NewBookingApp.Flight.Infra.Migrations
                         .HasColumnType("bigint");
 
                     b.Property<DateTime?>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<long?>("CreatedBy")
                         .HasColumnType("bigint");
@@ -39,7 +39,7 @@ namespace NewBookingApp.Flight.Infra.Migrations
                         .HasColumnType("boolean");
 
                     b.Property<DateTime?>("LastModified")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<long?>("LastModifiedBy")
                         .HasColumnType("bigint");
@@ -71,7 +71,7 @@ namespace NewBookingApp.Flight.Infra.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<long?>("CreatedBy")
                         .HasColumnType("bigint");
@@ -80,7 +80,7 @@ namespace NewBookingApp.Flight.Infra.Migrations
                         .HasColumnType("boolean");
 
                     b.Property<DateTime?>("LastModified")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<long?>("LastModifiedBy")
                         .HasColumnType("bigint");
@@ -106,10 +106,10 @@ namespace NewBookingApp.Flight.Infra.Migrations
                         .HasColumnType("bigint");
 
                     b.Property<DateTime>("ArriveDate")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<DateTime?>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<long?>("CreatedBy")
                         .HasColumnType("bigint");
@@ -118,13 +118,13 @@ namespace NewBookingApp.Flight.Infra.Migrations
                         .HasColumnType("bigint");
 
                     b.Property<DateTime>("DepartureDate")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<decimal>("DurationMinutes")
                         .HasColumnType("numeric");
 
                     b.Property<DateTime>("FlightDate")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("FlightNumber")
                         .IsRequired()
@@ -134,7 +134,7 @@ namespace NewBookingApp.Flight.Infra.Migrations
                         .HasColumnType("boolean");
 
                     b.Property<DateTime?>("LastModified")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<long?>("LastModifiedBy")
                         .HasColumnType("bigint");
@@ -163,7 +163,7 @@ namespace NewBookingApp.Flight.Infra.Migrations
                         .HasColumnType("integer");
 
                     b.Property<DateTime?>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<long?>("CreatedBy")
                         .HasColumnType("bigint");
@@ -175,7 +175,7 @@ namespace NewBookingApp.Flight.Infra.Migrations
                         .HasColumnType("boolean");
 
                     b.Property<DateTime?>("LastModified")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<long?>("LastModifiedBy")
                         .HasColumnType("bigint");

@@ -30,6 +30,8 @@ namespace NewBookingProject.Passenger.API.Commands.CompleteRegisterPassenger
 
             var updatePassenger = _passengerDbContext.Passengers.Update(passengerEntity);
 
+           await _passengerDbContext.SaveChangesAsync();
+
             return _mapper.Map<PassengerResponseDto>(updatePassenger.Entity);
         }
     }

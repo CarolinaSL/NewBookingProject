@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace NewBookingApp.Core.Model
 {
-    public abstract class Aggregate : Aggregate<long>
-    {
-    }
-
+  
     public abstract class Aggregate<TId> : Entity, IAggregate<TId>
     {
 

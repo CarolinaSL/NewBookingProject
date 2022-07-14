@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace NewBookingApp.Booking.Domain.Models
 {
-    public class Booking : Aggregate<long>
+    public class Booking : Aggregate<Guid>
     {
         public Booking()
         {
@@ -17,7 +17,7 @@ namespace NewBookingApp.Booking.Domain.Models
         public Trip Trip { get; private set; }
         public PassengerInfo PassengerInfo { get; private set; }
 
-        public static Booking Create(long id, PassengerInfo passengerInfo, Trip trip, bool isDeleted = false)
+        public static Booking Create(Guid id, PassengerInfo passengerInfo, Trip trip, bool isDeleted = false)
         {
             var booking = new Booking()
             {

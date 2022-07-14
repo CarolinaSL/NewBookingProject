@@ -13,7 +13,7 @@ namespace NewBookingApp.Booking.Infra.Migrations
                 name: "Booking",
                 columns: table => new
                 {
-                    Id = table.Column<long>(type: "bigint", nullable: false),
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
                     Trip_FlightNumber = table.Column<string>(type: "text", nullable: false),
                     Trip_AircraftId = table.Column<long>(type: "bigint", nullable: false),
                     Trip_DepartureAirportId = table.Column<long>(type: "bigint", nullable: false),

@@ -1,6 +1,6 @@
 ﻿namespace NewBookingApp.Core.Model
 {
-    public abstract class Entity : IEntity
+    public abstract class Entity
     {
         public DateTime? CreatedAt { get; set; }
         public long? CreatedBy { get; set; }

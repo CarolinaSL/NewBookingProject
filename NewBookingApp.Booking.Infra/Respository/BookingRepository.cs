@@ -24,7 +24,7 @@ namespace NewBookingApp.Booking.Infra.Respository
             _context.Bookings.AddAsync(booking);
         }
 
-        public async Task<Domain.Models.Booking> GetById(long id)
+        public async Task<Domain.Models.Booking> GetById(Guid id)
         {
             return await _context.Bookings.FindAsync(id);
         }

@@ -199,7 +199,6 @@ namespace NewBookingApp.Identity.Data.Migrations
                         .HasColumnType("character varying(256)");
 
                     b.Property<string>("PassPortNumber")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("PasswordHash")

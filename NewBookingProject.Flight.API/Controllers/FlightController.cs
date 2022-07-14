@@ -19,11 +19,10 @@ namespace NewBookingProject.Flight.API.Controllers
             _logger = logger;
             _mediator = mediator;
         }
-        [Authorize]
+        //[Authorize]
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        // [SwaggerOperation(Summary = "Get available flights", Description = "Get available flights")]
         public async Task<ActionResult> GetAvailableFlights([FromRoute] GetAvailableFlightsQuery query, CancellationToken cancellationToken)
         {
             var result = await _mediator.Send(query, cancellationToken);

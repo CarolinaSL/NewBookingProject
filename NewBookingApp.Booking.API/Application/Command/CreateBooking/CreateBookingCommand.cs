@@ -6,6 +6,6 @@ namespace NewBookingApp.Booking.API.Command.CreateBooking
 {
     public record CreateBookingCommand(long PassengerId, long FlightId, string Description) : ICommand<CreateReservationResponseDto>
     {
-        public long Id { get; set; } = SnowFlakIdGenerator.NewId();
+        public Guid Id { get; init; } = Guid.NewGuid();
     }
 }

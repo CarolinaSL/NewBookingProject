@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace NewBookingApp.Flight.Infra.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,9 +16,9 @@ namespace NewBookingApp.Flight.Infra.Migrations
                     Id = table.Column<long>(type: "bigint", nullable: false),
                     Name = table.Column<string>(type: "text", nullable: false),
                     Model = table.Column<string>(type: "text", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
                     CreatedBy = table.Column<long>(type: "bigint", nullable: true),
-                    LastModified = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    LastModified = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
                     LastModifiedBy = table.Column<long>(type: "bigint", nullable: true),
                     IsDeleted = table.Column<bool>(type: "boolean", nullable: false)
                 },
@@ -35,9 +35,9 @@ namespace NewBookingApp.Flight.Infra.Migrations
                     Name = table.Column<string>(type: "text", nullable: false),
                     Address = table.Column<string>(type: "text", nullable: false),
                     Code = table.Column<string>(type: "text", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
                     CreatedBy = table.Column<long>(type: "bigint", nullable: true),
-                    LastModified = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    LastModified = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
                     LastModifiedBy = table.Column<long>(type: "bigint", nullable: true),
                     IsDeleted = table.Column<bool>(type: "boolean", nullable: false)
                 },
@@ -53,17 +53,17 @@ namespace NewBookingApp.Flight.Infra.Migrations
                     Id = table.Column<long>(type: "bigint", nullable: false),
                     FlightNumber = table.Column<string>(type: "text", nullable: false),
                     AircraftId = table.Column<long>(type: "bigint", nullable: false),
-                    DepartureDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    DepartureDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     DepartureAirportId = table.Column<long>(type: "bigint", nullable: false),
-                    ArriveDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    ArriveDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     ArriveAirportId = table.Column<long>(type: "bigint", nullable: false),
                     DurationMinutes = table.Column<decimal>(type: "numeric", nullable: false),
-                    FlightDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    FlightDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     Status = table.Column<int>(type: "integer", nullable: false),
                     Price = table.Column<decimal>(type: "numeric", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
                     CreatedBy = table.Column<long>(type: "bigint", nullable: true),
-                    LastModified = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    LastModified = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
                     LastModifiedBy = table.Column<long>(type: "bigint", nullable: true),
                     IsDeleted = table.Column<bool>(type: "boolean", nullable: false)
                 },
@@ -93,9 +93,9 @@ namespace NewBookingApp.Flight.Infra.Migrations
                     Type = table.Column<int>(type: "integer", nullable: false),
                     Class = table.Column<int>(type: "integer", nullable: false),
                     FlightId = table.Column<long>(type: "bigint", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
                     CreatedBy = table.Column<long>(type: "bigint", nullable: true),
-                    LastModified = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    LastModified = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
                     LastModifiedBy = table.Column<long>(type: "bigint", nullable: true),
                     IsDeleted = table.Column<bool>(type: "boolean", nullable: false)
                 },

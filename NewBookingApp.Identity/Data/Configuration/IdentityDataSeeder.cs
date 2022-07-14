@@ -42,7 +42,7 @@ namespace NewBookingApp.Identity.Data.Configuration
                     UserName = "carol",
                     Email = "carolina.louzada@hotmail.com",
                     SecurityStamp = Guid.NewGuid().ToString(),
-                    PassPortNumber = "123456489"
+                    PassPortNumber = "123456789"
                 };
 
                 var result = await _userManager.CreateAsync(user, "Admin@123456");

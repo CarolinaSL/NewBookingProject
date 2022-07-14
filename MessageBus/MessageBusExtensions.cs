@@ -9,15 +9,7 @@ namespace MessageBus
 {
     public static class MessageBusExtensions
     {
-        public static IServiceCollection AddMessageBusEasyNet(this IServiceCollection services, string connection)
-        {
-            if (string.IsNullOrEmpty(connection)) throw new ArgumentNullException();
-
-            services.AddSingleton<IMessageBus>(new MessageBus(connection));
-
-            return services;
-        }
-
+       
         public static IServiceCollection AddCustomMassTransit(this IServiceCollection services, IConfiguration config, Assembly assembly, string connection = null)
         {
             services.AddMassTransit(configure =>
@@ -26,12 +18,13 @@ namespace MessageBus
                 configure.UsingRabbitMq((context, configurator) =>
                 {
                     var rabbitMqOptions = services.GetOptions<RabbitMqOptions>("RabbitMq");
-                    //  var connection = config.GetSection("MessageQueueConnection")?["MessageBus"];
-                    var host = "jackal.rmq.cloudamqp.com";
-                    configurator.Host(host, "rcxeicbn", h =>
+                   
+                   var host = rabbitMqOptions.HostName;
+                    var virtualHost = rabbitMqOptions.VirtualHost;
+                    configurator.Host(host, virtualHost, h =>
                     {
-                        h.Username("rcxeicbn");
-                        h.Password("4dagw5KMJa67cktjr4QvVcRO627VevGP");
+                        h.Username(rabbitMqOptions.UserName);
+                        h.Password(rabbitMqOptions.Password);
                         
                     });
                     var consumers = AppDomain.CurrentDomain.GetAssemblies().SelectMany(x => x.GetTypes())

@@ -8,7 +8,7 @@ namespace NewBookingApp.Core.Contracts
 {
     public record GetPassengerByIdRequest
     {
-        public long Id { get; init; }
+        public long PassengerId { get; init; }
     }
 
     public record PassengerResponse

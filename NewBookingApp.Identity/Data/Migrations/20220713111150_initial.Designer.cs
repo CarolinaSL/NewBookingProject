@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace NewBookingApp.Identity.Data.Migrations
 {
     [DbContext(typeof(IdentityContext))]
-    [Migration("20220705132833_Initial")]
-    partial class Initial
+    [Migration("20220713111150_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -201,7 +201,6 @@ namespace NewBookingApp.Identity.Data.Migrations
                         .HasColumnType("character varying(256)");
 
                     b.Property<string>("PassPortNumber")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("PasswordHash")

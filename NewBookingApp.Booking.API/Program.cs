@@ -1,4 +1,5 @@
 using FluentValidation;
+using IdGen.DependencyInjection;
 using MassTransit;
 using MediatR;
 using MessageBus;
@@ -30,6 +31,8 @@ builder.Services.AddDbContext<BookingDbContext>(options =>
 
 builder.Services.AddControllers();
 builder.Services.AddHttpContextAccessor();
+SnowFlakIdGenerator.Configure(3);
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddMediatR(typeof(BookingRoot).Assembly);
 builder.Services.AddScoped<IBookingRepository, BookingRepository>();
@@ -39,8 +42,6 @@ builder.Services.AddCustomMapster(typeof(BookingRoot).Assembly);
 builder.Services.AddValidatorsFromAssembly(typeof(BookingRoot).Assembly);
 builder.Services.AddCustomMassTransit(configuration, typeof(BookingRoot).Assembly);
 
-
-SnowFlakIdGenerator.Configure(3);
 
 var app = builder.Build();
 
