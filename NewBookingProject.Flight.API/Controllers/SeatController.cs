@@ -18,7 +18,7 @@ namespace NewBookingApp.Flight.API.Controllers
             _mediator = mediator;
         }
 
-        [Authorize]
+       // [Authorize]
         [HttpGet("{FlightId}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -30,7 +30,7 @@ namespace NewBookingApp.Flight.API.Controllers
             return Ok(result);
         }
 
-        [Authorize]
+       // [Authorize]
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]

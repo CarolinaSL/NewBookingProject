@@ -17,7 +17,7 @@ namespace NewBookingApp.Email.SendEmail
         }
         public async Task Consume(ConsumeContext<SendEmailRequestDto> context)
         {
-           // var api = "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";
+           
             var apiKey = _config.GetSection("apiKey").Value;
             var client = new SendGridClient(apiKey);
 
@@ -27,7 +27,7 @@ namespace NewBookingApp.Email.SendEmail
 
             var msg = new SendGridMessage()
             {
-                From = new EmailAddress("carolina.louzada@hotmail.com", "CarolSender"),
+                From = new EmailAddress("put_your_email_here@hotmail.com", "CarolSender"),
                 Subject = "Reservation",
                 PlainTextContent = $"Hi {context.Message.PassengerName}! Your reservation was created!"
             };

@@ -9,12 +9,10 @@ namespace NewBookingApp.Flight.API.Queries.GetAvailableSeats
     public class GetAvailableSeatsConsumer : IConsumer<GetAvailabeSeatsbyId>
     {
         private readonly IMapper _mapper;
-        private FlightDbContext _context;
         private IMediator _mediator;
 
-        public GetAvailableSeatsConsumer(FlightDbContext context, IMediator mediator, IMapper mapper)
+        public GetAvailableSeatsConsumer(IMediator mediator, IMapper mapper)
         {
-            _context = context;
             _mediator = mediator;
             _mapper = mapper;
         }

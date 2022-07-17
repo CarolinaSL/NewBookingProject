@@ -3,7 +3,6 @@ using MassTransit;
 using NewBookingApp.Booking.API.DTOs;
 using NewBookingApp.Booking.Domain.Interfaces;
 using NewBookingApp.Booking.Domain.Models.ValueObjects;
-using NewBookingApp.Booking.Infra.Respository;
 using NewBookingApp.Core.Contracts;
 using NewBookingApp.Core.CQRS;
 using NewBookingApp.Core.Exceptions;
