@@ -15,7 +15,7 @@ namespace NewBookingApp.Email.SendEmail
         }
         public async Task Consume(ConsumeContext<SendEmailRequestDto> context)
         {
-            var api = "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";
+            var api = "yourAPIkey"; // It's not recommended to use this way
             var client = new SendGridClient(api);
 
             var identityResponse = await _client.GetResponse<GetUserResponse>( new RequestUserByPassportNumber(context.Message.PassengerPassport));
